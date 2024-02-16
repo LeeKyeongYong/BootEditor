@@ -14,11 +14,11 @@ public class ContentService {
     private ContentRepository contentRepository;
 
     @Autowired
-    public ContentService(ContentRepository contentRepository){
+    public ContentService(ContentRepository contentRepository) {
         this.contentRepository = contentRepository;
     }
 
-    public void saveContent(SaveDTO dto){
+    public void saveContent(SaveDTO dto) {
 
         String title = dto.getTitle();
         String content = dto.getContent();
@@ -33,27 +33,27 @@ public class ContentService {
 
     }
 
-    public List<ContentEntity> selectContent(){
+    public List<ContentEntity> selectContent() {
         return contentRepository.findAll();
     }
 
-    public ContentEntity selectOneContent(String id){
+    public ContentEntity selectOneContent(String id) {
         int editId = Integer.parseInt(id);
         return contentRepository.findById(editId);
     }
 
-    public void deleteId(String id){
+    public void deleteId(String id) {
         int deleteId = Integer.parseInt(id);
         contentRepository.deleteById(deleteId);
     }
 
-    public void updateOnContent(SaveDTO dto,String id){
+    public void updateOnContent(SaveDTO dto, String id) {
         int no = Integer.parseInt(id);
         ContentEntity content1 = new ContentEntity();
         content1.setId(no);
         content1.setTitle(dto.getTitle());
         content1.setContent(dto.getContent());
-        contentRepository.save(content1);
-    }
+        contentRepository.saveAndFlush(content1);
 
+    }
 }

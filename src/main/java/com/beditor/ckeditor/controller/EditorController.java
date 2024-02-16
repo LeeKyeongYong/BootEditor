@@ -6,7 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-
+import org.springframework.web.bind.annotation.RequestMethod;
 
 
 @Controller
@@ -25,10 +25,11 @@ public class EditorController {
     }
 
 
-    @RequestMapping("/edit/{id}")
+    @RequestMapping(value="/edit/{id}", method = RequestMethod.GET)
     public String updatePage(@PathVariable("id") String id, Model model){
 
         model.addAttribute("data",contentService.selectOneContent(id));
+        System.out.println("들어오냐??: "+id);
         return "editor";
     }
 

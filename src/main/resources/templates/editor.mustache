@@ -23,3 +23,18 @@
 </script>
 </body>
 </html>
+
+{{#data}}
+    <form action="/save/{{id}}" method="POST">
+        <input name="title" type="text" placeholder="제목" value="{{title}}"/><br>
+        <textarea name="content" id="content">{{content}}</textarea><br>
+        <input type="submit" value="등록">
+    </form>
+{{/data}}
+{{^data}}
+    <form action="/save" method="POST">
+        <input name="title" type="text" placeholder="제목"/><br>
+        <textarea name="content" id="content"></textarea><br>
+        <input type="submit" value="등록">
+    </form>
+{{/data}}
