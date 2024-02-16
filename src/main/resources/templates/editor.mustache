@@ -9,20 +9,12 @@
 </head>
 <body>
 
-{{#data}}
-    <form action="/save/{{id}}" method="POST">
-        <input name="title" type="text" placeholder="제목" value="{{title}}"/><br>
-        <textarea name="content" id="content">{{content}}</textarea><br>
+
+    <form action="/save{{#data}}/{{data.id}}{{/data}}" method="POST">
+        <input name="title" type="text" placeholder="제목" {{#data}} value="{{data.title}}" {{/data}} {{^data}}value=""{{/data}}/><br>
+        <textarea name="content" id="content">{{#data}}{{data.content}}{{/data}}</textarea><br>
         <input type="submit" value="등록">
     </form>
-{{/data}}
-{{^data}}
-    <form action="/save" method="POST">
-        <input name="title" type="text" placeholder="제목"/><br>
-        <textarea name="content" id="content"></textarea><br>
-        <input type="submit" value="등록">
-    </form>
-{{/data}}
 <script>
 
     ClassicEditor.create( document.querySelector( '#content' ), {
