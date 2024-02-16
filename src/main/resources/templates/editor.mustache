@@ -8,21 +8,6 @@
     <script src="/js/ckeditor.js"></script>
 </head>
 <body>
-<form action="/save" method="POST">
-    <input name="title" type="text" placeholder="제목"/><br>
-    <textarea name="content" id="content"></textarea><br>
-    <input type="submit" value="등록">
-</form>
-<script>
-
-    ClassicEditor.create( document.querySelector( '#content' ), {
-
-        language: "ko"
-    } );
-
-</script>
-</body>
-</html>
 
 {{#data}}
     <form action="/save/{{id}}" method="POST">
@@ -38,3 +23,14 @@
         <input type="submit" value="등록">
     </form>
 {{/data}}
+<script>
+
+    ClassicEditor.create( document.querySelector( '#content' ), {
+
+        language: "ko"
+    } );
+
+</script>
+
+</body>
+</html>
