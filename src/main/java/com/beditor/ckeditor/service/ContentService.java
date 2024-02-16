@@ -42,4 +42,18 @@ public class ContentService {
         return contentRepository.findById(editId);
     }
 
+    public void deleteId(String id){
+        int deleteId = Integer.parseInt(id);
+        contentRepository.deleteById(deleteId);
+    }
+
+    public void updateOnContent(SaveDTO dto,String id){
+        int no = Integer.parseInt(id);
+        ContentEntity content1 = new ContentEntity();
+        content1.setId(no);
+        content1.setTitle(dto.getTitle());
+        content1.setContent(dto.getContent());
+        contentRepository.save(content1);
+    }
+
 }
