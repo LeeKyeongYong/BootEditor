@@ -19,6 +19,7 @@ public class SaveController {
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     public String savePage(SaveDTO dto){
 
+        contentService.saveContent(dto);
         System.out.println("request: "+dto);
 
         return "redirect:/";
