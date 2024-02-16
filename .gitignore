@@ -1,7 +1,7 @@
 # Created by https://www.toptal.com/developers/gitignore/api/eclipse,intellij
 # Edit at https://www.toptal.com/developers/gitignore?templates=eclipse,intellij
 # User-specific configurations
-
+application.properties
 application-secret.properties
 
 ### Gradle ###
