@@ -1,4 +1,6 @@
 package com.beditor.ckeditor.repository;
 
-public class ContentRepository {
-}
+import com.beditor.ckeditor.entity.ContentEntity;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface ContentRepository extends JpaRepository<ContentEntity,Integer> { }

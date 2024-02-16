@@ -1,4 +1,39 @@
 package com.beditor.ckeditor.service;
 
+import com.beditor.ckeditor.dto.SaveDTO;
+import com.beditor.ckeditor.entity.ContentEntity;
+import com.beditor.ckeditor.repository.ContentRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
 public class ContentService {
+
+    private ContentRepository contentRepository;
+
+    @Autowired
+    public ContentService(ContentRepository contentRepository){
+        this.contentRepository = contentRepository;
+    }
+
+    public void saveContent(SaveDTO dto){
+
+        String title = dto.getTitle();
+        String content = dto.getContent();
+
+        ContentEntity content1 = new ContentEntity();
+        content1.setTitle(title);
+        content1.setContent(content);
+
+        contentRepository.save(content1);
+
+        return;
+
+    }
+
+    public List<ContentEntity> selectContent(){
+        return contentRepository.findAll();
+    }
 }
