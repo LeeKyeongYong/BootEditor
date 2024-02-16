@@ -36,4 +36,10 @@ public class ContentService {
     public List<ContentEntity> selectContent(){
         return contentRepository.findAll();
     }
+
+    public ContentEntity selectOneContent(String id){
+        int editId = Integer.parseInt(id);
+        return contentRepository.findById(editId);
+    }
+
 }
