@@ -1,9 +1,6 @@
 package com.beditor.ckeditor.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
 
 @Entity
@@ -15,5 +12,6 @@ public class ContentEntity {
     private int id;
 
     private String title;
+    @Lob
     private String content;
 }
